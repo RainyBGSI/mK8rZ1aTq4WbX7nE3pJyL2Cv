@@ -557,7 +557,7 @@ local Button = Tab:CreateButton({
 
 local Tab = Window:CreateTab("OP", nil) -- Title, Image
 
-local Section = Tab:CreateSection("You need to give me a gamepass to have access")
+local Section = Tab:CreateSection("You need to give me a gamepass for it to work")
 
 local Toggle = Tab:CreateToggle({
    Name = "Auto Open 40 Eggs",
