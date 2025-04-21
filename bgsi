@@ -221,7 +221,7 @@ local Toggle = Tab:CreateToggle({
 
 local Tab = Window:CreateTab("Shops", 4483362458)
 
-local Section = Tab:CreateSection("Auto Buys when Restock")
+local Section = Tab:CreateSection("Auto Buys when Restocked")
 
 local Toggle = Tab:CreateToggle({
    Name = "Auto Buy Alien Shop",
