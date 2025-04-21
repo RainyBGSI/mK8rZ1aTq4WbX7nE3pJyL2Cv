@@ -36,7 +36,7 @@ local Window = Rayfield:CreateWindow({
 
 local Tab = Window:CreateTab("Main", 4483362458)
 
-local Section = Tab:CreateSection("Auto")
+local Section = Tab:CreateSection("Main")
 local Toggle = Tab:CreateToggle({
    Name = "Auto Blow Bubbles",
    CurrentValue = false,
@@ -46,7 +46,6 @@ local Toggle = Tab:CreateToggle({
    -- The variable (Value) is a boolean on whether the toggle is true or false
    end,
 })
-
 
 local Toggle = Tab:CreateToggle({
    Name = "Auto Sell (Must be near sell area)",
@@ -58,30 +57,11 @@ local Toggle = Tab:CreateToggle({
    end,
 })
 
+local Section = Tab:CreateSection("Auto Claim")
 local Toggle = Tab:CreateToggle({
    Name = "Auto Claim Playtime",
    CurrentValue = false,
    Flag = "AutoPlaytimeToggle", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-   Callback = function(Value)
-   -- The function that takes place when the toggle is pressed
-   -- The variable (Value) is a boolean on whether the toggle is true or false
-   end,
-})
-
-local Toggle = Tab:CreateToggle({
-   Name = "Auto Open Chests",
-   CurrentValue = false,
-   Flag = "AutoChestsToggle", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-   Callback = function(Value)
-   -- The function that takes place when the toggle is pressed
-   -- The variable (Value) is a boolean on whether the toggle is true or false
-   end,
-})
-
-local Toggle = Tab:CreateToggle({
-   Name = "Auto Collect Aura",
-   CurrentValue = false,
-   Flag = "AutoCollectToggle", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
    Callback = function(Value)
    -- The function that takes place when the toggle is pressed
    -- The variable (Value) is a boolean on whether the toggle is true or false
@@ -108,6 +88,27 @@ local Toggle = Tab:CreateToggle({
    end,
 })
 
+local Section = Tab:CreateSection("Others")
+local Toggle = Tab:CreateToggle({
+   Name = "Auto Collect All Chests",
+   CurrentValue = false,
+   Flag = "AutoChestsToggle", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+   -- The function that takes place when the toggle is pressed
+   -- The variable (Value) is a boolean on whether the toggle is true or false
+   end,
+})
+
+local Toggle = Tab:CreateToggle({
+   Name = "Auto Collect Aura",
+   CurrentValue = false,
+   Flag = "AutoCollectToggle", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+   -- The function that takes place when the toggle is pressed
+   -- The variable (Value) is a boolean on whether the toggle is true or false
+   end,
+})
+
 local Toggle = Tab:CreateToggle({
    Name = "Auto Buy Mastery",
    CurrentValue = false,
@@ -126,13 +127,6 @@ local Toggle = Tab:CreateToggle({
    Callback = function(Value)
    -- The function that takes place when the toggle is pressed
    -- The variable (Value) is a boolean on whether the toggle is true or false
-   end,
-})
-
-local Button = Tab:CreateButton({
-   Name = "Unlock All Islands",
-   Callback = function()
-   -- The function that takes place when the button is pressed
    end,
 })
 
@@ -222,10 +216,10 @@ local Toggle = Tab:CreateToggle({
 local Tab = Window:CreateTab("Rifts", 4483362458) -- Title, Image
 
 local Dropdown = Tab:CreateDropdown({
-   Name = "Select which rift to auto farm",
+   Name = "Select Rift",
    Options = {"None", "Aura Egg","Royal Chest", "Rainbow Egg","Void Egg", "Nightmare Egg", "Bunny Egg", "Pastel Egg"},
    CurrentOption = {"None"},
-   MultipleOptions = false,
+   MultipleOptions = true,
    Flag = "RiftAFDropdown", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
    Callback = function(Options)
    -- The function that takes place when the selected option is changed
@@ -234,13 +228,70 @@ local Dropdown = Tab:CreateDropdown({
 })
 
 local Dropdown = Tab:CreateDropdown({
-   Name = "Select the luck of rift to autofarm",
+   Name = "Select Rift Luck",
    Options = {"None","5x", "x10", "x25"},
    CurrentOption = {"None"},
-   MultipleOptions = false,
+   MultipleOptions = true,
    Flag = "LuckAFDropdown", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
    Callback = function(Options)
    -- The function that takes place when the selected option is changed
    -- The variable (Options) is a table of strings for the current selected options
+   end,
+})
+
+local Toggle = Tab:CreateToggle({
+   Name = "Enable Rift Autofarm",
+   CurrentValue = false,
+   Flag = "RiftAFToggle", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+   -- The function that takes place when the toggle is pressed
+   -- The variable (Value) is a boolean on whether the toggle is true or false
+   end,
+})
+
+local Tab = Window:CreateTab("Teleport", 4483362458)
+
+local Button = Tab:CreateButton({
+   Name = "Unlock All Islands",
+   Callback = function()
+   -- The function that takes place when the button is pressed
+   end,
+})
+
+local Dropdown = Tab:CreateDropdown({
+   Name = "Teleport to Island",
+   Options = {"None","Easter", "The Overworld", "Floating Island", "Outer Space", "Twilight", "The Void", "Zen"},
+   CurrentOption = {"None"},
+   MultipleOptions = false,
+   Flag = "Dropdown1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Options)
+   -- The function that takes place when the selected option is changed
+   -- The variable (Options) is a table of strings for the current selected options
+   end,
+})
+
+local Button = Tab:CreateButton({
+   Name = "Teleport to Selected Island",
+   Callback = function()
+   -- The function that takes place when the button is pressed
+   end,
+})
+
+local Dropdown = Tab:CreateDropdown({
+   Name = "Teleport to Player",
+   Options = {"None","", "", "", "", "", "", "", "", "", "", "", ""},
+   CurrentOption = {"None"},
+   MultipleOptions = false,
+   Flag = "Dropdown1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Options)
+   -- The function that takes place when the selected option is changed
+   -- The variable (Options) is a table of strings for the current selected options
+   end,
+})
+
+local Button = Tab:CreateButton({
+   Name = "Teleport to Selected Player",
+   Callback = function()
+   -- The function that takes place when the button is pressed
    end,
 })
