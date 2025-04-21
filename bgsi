@@ -134,7 +134,9 @@ local Button = Tab:CreateButton({
    end,
 })
 
-local Section = Tab:CreateSection("Visual")
+local Section = Tab:CreateSection("Enchant")
+
+local Section = Tab:CreateSection("This only works in the Enchanting Area")
 
 local Dropdown = Tab:CreateDropdown({
    Name = "Select Enchants:",
@@ -145,6 +147,16 @@ local Dropdown = Tab:CreateDropdown({
    Callback = function(Options)
    -- The function that takes place when the selected option is changed
    -- The variable (Options) is a table of strings for the current selected options
+   end,
+})
+
+local Toggle = Tab:CreateToggle({
+   Name = "Auto Enchant",
+   CurrentValue = false,
+   Flag = "AutoEnchantToggle", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+   -- The function that takes place when the toggle is pressed
+   -- The variable (Value) is a boolean on whether the toggle is true or false
    end,
 })
 
