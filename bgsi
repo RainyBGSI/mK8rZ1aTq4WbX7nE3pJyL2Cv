@@ -1,4 +1,5 @@
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+print(game:HttpGet('https://sirius.menu/rayfield'))
 
 local MainWindow = Rayfield:CreateWindow({
     Name = "Bubble Gum Simulator INFINITY",
@@ -152,7 +153,7 @@ local Dropdown = Tab:CreateDropdown({
 })
 
 local Dropdown = Tab:CreateDropdown({
-   Name = Select Enchant Level:",
+   Name = "Select Enchant Level:",
    Options = {"None","I", "II", "III", "IV", "V"},
    CurrentOption = {"None"},
    MultipleOptions = false,
@@ -226,7 +227,7 @@ local Dropdown = Tab:CreateDropdown({
    Options = {"None", "Aura Egg","Royal Chest", "Rainbow Egg","Void Egg", "Nightmare Egg", "Bunny Egg", "Pastel Egg"},
    CurrentOption = {"None"},
    MultipleOptions = false,
-   Flag = "RiftAFDropdowm", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Flag = "RiftAFDropdown", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
    Callback = function(Options)
    -- The function that takes place when the selected option is changed
    -- The variable (Options) is a table of strings for the current selected options
