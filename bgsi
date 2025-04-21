@@ -50,6 +50,8 @@ MainTab:CreateToggle({
             if blowThread == nil then
                 blowThread = task.spawn(function()
                     while autoBlowRunning do
+                        if not autoBlowRunning then break end
+                        
                         local args = {
                             [1] = "BlowBubble"
                         }
