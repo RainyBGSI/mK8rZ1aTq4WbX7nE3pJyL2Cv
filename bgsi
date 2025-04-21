@@ -34,7 +34,7 @@ local MainWindow = Rayfield:CreateWindow({
     }
 })
 
-local MainTab = MainWindow:CreateTab("Main", 4483362458)
+local Tab = MainWindow:CreateTab("Main", 4483362458)
 
 local Toggle = Tab:CreateToggle({
    Name = "Auto Blow Bubbles",
