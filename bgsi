@@ -13,7 +13,7 @@ local MainWindow = Rayfield:CreateWindow({
     ConfigurationSaving = {
         Enabled = true,
         FolderName = nil,
-        FileName = "BGSI Script"
+        FileName = "BGSI Config"
     },
 
     Discord = {
