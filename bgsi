@@ -46,15 +46,14 @@ MainTab:CreateToggle({
     Flag = "AutoBlowBubble",
     Callback = function(Value)
         autoBlowRunning = Value
+
         if autoBlowRunning then
             if blowThread == nil then
                 blowThread = task.spawn(function()
-                    while autoBlowRunning do
+                    while true do
                         if not autoBlowRunning then break end
-                        
-                        local args = {
-                            [1] = "BlowBubble"
-                        }
+
+                        local args = { [1] = "BlowBubble" }
 
                         game:GetService("ReplicatedStorage")
                             :WaitForChild("Shared")
@@ -64,7 +63,6 @@ MainTab:CreateToggle({
                             :WaitForChild("Event")
                             :FireServer(unpack(args))
 
-                        print("Blowing bubble at:", os.clock())
                         task.wait(0.2)
                     end
                     blowThread = nil
