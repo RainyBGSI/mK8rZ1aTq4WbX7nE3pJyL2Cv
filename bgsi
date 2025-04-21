@@ -42,9 +42,20 @@ local Toggle = Tab:CreateToggle({
    CurrentValue = false,
    Flag = "AutoBlowToggle", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
    Callback = function(Value)
-   -- The function that takes place when the toggle is pressed
-   -- The variable (Value) is a boolean on whether the toggle is true or false
-   end,
+     _G.Bubble = Value
+     if Value then
+        task.spawn(function()
+          while _G.Bubble do
+            local args = {
+              [1] = "BlowBubble"
+             }
+
+ game:GetService("ReplicatedStorage").Shared.Framework.Network.Remote.Event:FireServer(unpack(args))
+          task.wait(0.1)
+         end
+       end)
+     end
+   end
 })
 
 local Toggle = Tab:CreateToggle({
