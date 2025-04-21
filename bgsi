@@ -80,26 +80,35 @@ game:GetService("ReplicatedStorage"):WaitForChild("Shared"):WaitForChild("Framew
 })
 
 local Section = Tab:CreateSection("Auto Claim")
+
 local Toggle = Tab:CreateToggle({
    Name = "Auto Claim Playtime",
    CurrentValue = false,
-   Flag = "AutoPlaytimeToggle", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Flag = "AutoPlaytimeToggle",
    Callback = function(Value)
       _G.Playtime = Value
-        if Value then
+      if Value then
          task.spawn(function()
-          while _G.Playtime do
-           for i = 1, 9 do
-             local args = {
-              [1] = "ClaimPlaytime",
-              [2] = i
-             }
+            while _G.Playtime do
+               for i = 1, 9 do
+                  local args = {
+                     [1] = "ClaimPlaytime",
+                     [2] = i
+                  }
 
-game:GetService("ReplicatedStorage"):WaitForChild("Shared"):WaitForChild("Framework"):WaitForChild("Network"):WaitForChild("Remote"):WaitForChild("Function"):InvokeServer(unpack(args))
-         task.wait(0.1)
-       end
-     end)
-    end
+                  game:GetService("ReplicatedStorage")
+                     :WaitForChild("Shared")
+                     :WaitForChild("Framework")
+                     :WaitForChild("Network")
+                     :WaitForChild("Remote")
+                     :WaitForChild("Function")
+                     :InvokeServer(unpack(args))
+
+                  task.wait(0.1)
+               end
+            end
+         end)
+      end
    end
 })
 
