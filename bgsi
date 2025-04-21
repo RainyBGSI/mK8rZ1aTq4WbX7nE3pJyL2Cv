@@ -68,9 +68,49 @@ local Toggle = Tab:CreateToggle({
 })
 
 local Toggle = Tab:CreateToggle({
+   Name = "Auto Open Chests",
+   CurrentValue = false,
+   Flag = "AutoChestsToggle", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+   -- The function that takes place when the toggle is pressed
+   -- The variable (Value) is a boolean on whether the toggle is true or false
+   end,
+})
+
+local Toggle = Tab:CreateToggle({
    Name = "Auto Collect Aura",
    CurrentValue = false,
    Flag = "AutoCollectToggle", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+   -- The function that takes place when the toggle is pressed
+   -- The variable (Value) is a boolean on whether the toggle is true or false
+   end,
+})
+
+local Toggle = Tab:CreateToggle({
+   Name = "Auto Claim Season Rewards",
+   CurrentValue = false,
+   Flag = "AutoSeasonToggle", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+   -- The function that takes place when the toggle is pressed
+   -- The variable (Value) is a boolean on whether the toggle is true or false
+   end,
+})
+
+local Toggle = Tab:CreateToggle({
+   Name = "Auto Claim Wheel Ticket",
+   CurrentValue = false,
+   Flag = "AutoWheelToggle", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+   -- The function that takes place when the toggle is pressed
+   -- The variable (Value) is a boolean on whether the toggle is true or false
+   end,
+})
+
+local Toggle = Tab:CreateToggle({
+   Name = "Auto Buy Mastery",
+   CurrentValue = false,
+   Flag = "AutoMasteryToggle", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
    Callback = function(Value)
    -- The function that takes place when the toggle is pressed
    -- The variable (Value) is a boolean on whether the toggle is true or false
@@ -91,6 +131,20 @@ local Button = Tab:CreateButton({
    Name = "Unlock All Islands",
    Callback = function()
    -- The function that takes place when the button is pressed
+   end,
+})
+
+local Section = Tab:CreateSection("Visual")
+
+local Dropdown = Tab:CreateDropdown({
+   Name = "Select Enchants:",
+   Options = {"None","💰 Looter I", "💰 Looter II", "💰 Looter III", "💰 Looter IV", "💰 Looter V", "🫧 Bubbler I", "🫧 Bubbler II", "🫧 Bubbler III", "🫧 Bubbler IV", "🫧 Bubbler V", "⚡️ Team Up I", "⚡️ Team Up II", "⚡️ Team Up III", "⚡️ Team Up IV", "⚡️ Team Up V", "✨ Gleaming I", "✨ Gleaming II", "✨ Gleaming III", "🧲 Magnetism", "∞ Infinity", "🎲 High Roller"},
+   CurrentOption = {"None"},
+   MultipleOptions = false,
+   Flag = "Dropdown1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Options)
+   -- The function that takes place when the selected option is changed
+   -- The variable (Options) is a table of strings for the current selected options
    end,
 })
 
