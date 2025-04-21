@@ -63,7 +63,7 @@ MainTab:CreateToggle({
                             :WaitForChild("Event")
                             :FireServer(unpack(args))
 
-                        task.wait(0.2)
+                        task.wait()
                     end
                     blowThread = nil
                 end)
