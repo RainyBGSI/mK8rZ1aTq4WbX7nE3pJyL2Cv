@@ -36,6 +36,7 @@ local MainWindow = Rayfield:CreateWindow({
 
 local Tab = MainWindow:CreateTab("Main", 4483362458)
 
+local Section = Tab:CreateSection("Auto")
 local Toggle = Tab:CreateToggle({
    Name = "Auto Blow Bubbles",
    CurrentValue = false,
@@ -117,6 +118,7 @@ local Toggle = Tab:CreateToggle({
    end,
 })
 
+local Section = Tab:CreateSection("Others")
 local Toggle = Tab:CreateToggle({
    Name = "Anti AFK",
    CurrentValue = false,
@@ -134,13 +136,24 @@ local Button = Tab:CreateButton({
    end,
 })
 
-local Section = Tab:CreateSection("Enchant")
+local Tab = Window:CreateTab("Enchant", 4483362458) -- Title, Image
 
 local Section = Tab:CreateSection("This only works in the Enchanting Area")
+local Dropdown = Tab:CreateDropdown({
+   Name = "Select Enchant:",
+   Options = {"None","💰 Looter", "🫧 Bubbler", "⚡️ Team Up", "✨ Gleaming", "🧲 Magnetism", "∞ Infinity", "🎲 High Roller"},
+   CurrentOption = {"None"},
+   MultipleOptions = false,
+   Flag = "Dropdown1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Options)
+   -- The function that takes place when the selected option is changed
+   -- The variable (Options) is a table of strings for the current selected options
+   end,
+})
 
 local Dropdown = Tab:CreateDropdown({
-   Name = "Select Enchants:",
-   Options = {"None","💰 Looter I", "💰 Looter II", "💰 Looter III", "💰 Looter IV", "💰 Looter V", "🫧 Bubbler I", "🫧 Bubbler II", "🫧 Bubbler III", "🫧 Bubbler IV", "🫧 Bubbler V", "⚡️ Team Up I", "⚡️ Team Up II", "⚡️ Team Up III", "⚡️ Team Up IV", "⚡️ Team Up V", "✨ Gleaming I", "✨ Gleaming II", "✨ Gleaming III", "🧲 Magnetism", "∞ Infinity", "🎲 High Roller"},
+   Name = Select Enchant Level:",
+   Options = {"None","I", "II", "III", "IV", "V"},
    CurrentOption = {"None"},
    MultipleOptions = false,
    Flag = "Dropdown1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
@@ -160,11 +173,11 @@ local Toggle = Tab:CreateToggle({
    end,
 })
 
-local Section = Tab:CreateSection("Easter")
+local Tab = Window:CreateTab("Easter", 4483362458) -- Title, Image
 
 
 
-local Section = Tab:CreateSection("Visual")
+local Tab = Window:CreateTab("Visual", 4483362458) -- Title, Image
 
 local Toggle = Tab:CreateToggle({
    Name = "Rift ESP",
@@ -206,7 +219,7 @@ local Toggle = Tab:CreateToggle({
    end,
 })
 
-local Section = Tab:CreateSection("Rifts")
+local Tab = Window:CreateTab("Rifts", 4483362458) -- Title, Image
 
 local Dropdown = Tab:CreateDropdown({
    Name = "Select which rift to auto farm",
