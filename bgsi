@@ -292,27 +292,31 @@ local Toggle = Tab:CreateToggle({
 local Toggle = Tab:CreateToggle({
    Name = "Auto Buy Blackmarket",
    CurrentValue = false,
-   Flag = "AutoBlackmarketToggle", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Flag = "AutoBlackmarketToggle", -- Make sure every element has a different flag
    Callback = function(Value)
       _G.Blackmarket = Value
       if Value then
          task.spawn(function()
-           local event =
-game:GetService("ReplicatedStorage"):WaitForChild("Shared"):WaitForChild("Framework"):WaitForChild("Network"):WaitForChild("Remote"):WaitForChild("Event")
-          while _G.Blackmarket do
-            for i = 1, 3 do
-               local args = {
-                 [1] = "BuyShopItem",
-                 [2] = "shard-shop",
-                 [3] = i
-               }
-               event:FireServer(unpack(args))
-               task.wait(0.1)
+            local event = game:GetService("ReplicatedStorage")
+               :WaitForChild("Shared")
+               :WaitForChild("Framework")
+               :WaitForChild("Network")
+               :WaitForChild("Remote")
+               :WaitForChild("Event")
+            while _G.Blackmarket do
+               for i = 1, 3 do
+                  local args = {
+                     [1] = "BuyShopItem",
+                     [2] = "shard-shop",
+                     [3] = i
+                  }
+                  event:FireServer(unpack(args))
+                  task.wait(0.1)
+               end
             end
-         end
-      end)
-    end
- end
+         end)
+      end
+   end
 })
 
 local Tab = Window:CreateTab("Event", nil) -- Title, Image
