@@ -175,6 +175,8 @@ local Toggle = Tab:CreateToggle({
 
 local Tab = Window:CreateTab("Items", 4483362458) -- Title, Image
 
+local Section = Tab:CreateSection("Items")
+
 local Toggle = Tab:CreateToggle({
    Name = "Auto Use Mystery Box",
    CurrentValue = false,
@@ -219,6 +221,8 @@ local Toggle = Tab:CreateToggle({
 
 local Tab = Window:CreateTab("Shops", 4483362458)
 
+local Section = Tab:CreateSection("Auto Buys when Restock")
+
 local Toggle = Tab:CreateToggle({
    Name = "Auto Buy Alien Shop",
    CurrentValue = false,
@@ -239,7 +243,9 @@ local Toggle = Tab:CreateToggle({
    end,
 })
 
-local Tab = Window:CreateTab("Easter", 4483362458) -- Title, Image
+local Tab = Window:CreateTab("Event", 4483362458) -- Title, Image
+
+local Section = Tab:CreateSection("Easter")
 
 local Button = Tab:CreateButton({
    Name = "Teleport to Easter",
@@ -247,6 +253,8 @@ local Button = Tab:CreateButton({
    -- The function that takes place when the button is pressed
    end,
 })
+
+local Section = Tab:CreateSection("Eggs")
 
 local Tab = Window:CreateTab("Enchant", 4483362458) -- Title, Image
 
@@ -286,6 +294,8 @@ local Toggle = Tab:CreateToggle({
 })
 
 local Tab = Window:CreateTab("Visual", 4483362458) -- Title, Image
+
+local Section = Tab:CreateSection("ESP")
 
 local Toggle = Tab:CreateToggle({
    Name = "Rift ESP",
@@ -329,6 +339,8 @@ local Toggle = Tab:CreateToggle({
 
 local Tab = Window:CreateTab("Rifts", 4483362458) -- Title, Image
 
+local Section = Tab:CreateSection("This will Autofarm the Selected Rift")
+
 local Dropdown = Tab:CreateDropdown({
    Name = "Select Rift",
    Options = {"None", "Aura Egg","Royal Chest", "Rainbow Egg","Void Egg", "Nightmare Egg", "Bunny Egg", "Pastel Egg"},
@@ -364,6 +376,8 @@ local Toggle = Tab:CreateToggle({
 })
 
 local Tab = Window:CreateTab("Potions", 4483362458) -- Title, Image
+
+local Section = Tab:CreateSection("Potions")
 
 local Dropdown = Tab:CreateDropdown({
    Name = "Select Potion",
@@ -405,6 +419,8 @@ local Button = Tab:CreateButton({
 
 local Tab = Window:CreateTab("Teleport", 4483362458)
 
+local Section = Tab:CreateSection("Islands")
+
 local Button = Tab:CreateButton({
    Name = "Unlock All Islands",
    Callback = function()
@@ -431,6 +447,8 @@ local Button = Tab:CreateButton({
    end,
 })
 
+local Section = Tab:CreateSection("Players")
+
 local Dropdown = Tab:CreateDropdown({
    Name = "Teleport to Player",
    Options = {"None","", "", "", "", "", "", "", "", "", "", "", ""},
@@ -451,6 +469,8 @@ local Button = Tab:CreateButton({
 })
 
 local Tab = Window:CreateTab("Misc", 4483362458) -- Title, Image
+
+local Section = Tab:CreateSection("Others")
 
 local Button = Tab:CreateButton({
    Name = "Server Hop",
