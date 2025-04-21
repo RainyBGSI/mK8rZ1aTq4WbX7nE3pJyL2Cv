@@ -46,7 +46,14 @@ local Toggle = MainTab:CreateToggle({
     [1] = "BlowBubble"
 }
 
-game:GetService("ReplicatedStorage"):WaitForChild("Shared"):WaitForChild("Framework"):WaitForChild("Network"):WaitForChild("Remote"):WaitForChild("Event"):FireServer(unpack(args))
+game:GetService("ReplicatedStorage")
+:WaitForChild("Shared")
+:WaitForChild("Framework")
+:WaitForChild("Network")
+:WaitForChild("Remote")
+:WaitForChild("Event")
+:FireServer(unpack(args))
+            task.wait(0.2)
          end
    end,
 })
