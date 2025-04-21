@@ -4,7 +4,7 @@ local Window = Rayfield:CreateWindow({
     Name = "Bubble Gum Simulator INFINITY",
     Icon = 0,
     LoadingTitle = "Loading Interface...",
-    LoadingSubtitle = "I HATE NIGGERS!",
+    LoadingSubtitle = "",
     Theme = "Default",
 
     DisableRayfieldPrompts = false,
