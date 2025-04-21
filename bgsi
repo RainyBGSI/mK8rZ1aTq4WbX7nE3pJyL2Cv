@@ -137,8 +137,8 @@ local Dropdown = Tab:CreateDropdown({
    Name = "Select Enchant:",
    Options = {"None","💰 Looter", "💭 Bubbler", "⚡️ Team Up", "✨ Gleaming", "🧲 Magnetism", "∞ Infinity", "🎲 High Roller"},
    CurrentOption = {"None"},
-   MultipleOptions = false,
-   Flag = "Dropdown1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   MultipleOptions = true,
+   Flag = "ChoseEnchantDropdown", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
    Callback = function(Options)
    -- The function that takes place when the selected option is changed
    -- The variable (Options) is a table of strings for the current selected options
@@ -149,8 +149,8 @@ local Dropdown = Tab:CreateDropdown({
    Name = "Select Enchant Level:",
    Options = {"None","I", "II", "III", "IV", "V"},
    CurrentOption = {"None"},
-   MultipleOptions = false,
-   Flag = "Dropdown1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   MultipleOptions = true,
+   Flag = "EnchantLevelDropdown", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
    Callback = function(Options)
    -- The function that takes place when the selected option is changed
    -- The variable (Options) is a table of strings for the current selected options
@@ -263,7 +263,7 @@ local Dropdown = Tab:CreateDropdown({
    Options = {"None","Easter", "The Overworld", "Floating Island", "Outer Space", "Twilight", "The Void", "Zen"},
    CurrentOption = {"None"},
    MultipleOptions = false,
-   Flag = "Dropdown1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Flag = "IslandTeleportDropdown", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
    Callback = function(Options)
    -- The function that takes place when the selected option is changed
    -- The variable (Options) is a table of strings for the current selected options
@@ -282,7 +282,7 @@ local Dropdown = Tab:CreateDropdown({
    Options = {"None","", "", "", "", "", "", "", "", "", "", "", ""},
    CurrentOption = {"None"},
    MultipleOptions = false,
-   Flag = "Dropdown1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Flag = "PlayerTeleportDropdown", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
    Callback = function(Options)
    -- The function that takes place when the selected option is changed
    -- The variable (Options) is a table of strings for the current selected options
