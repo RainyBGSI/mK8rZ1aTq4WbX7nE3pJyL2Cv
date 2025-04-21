@@ -173,7 +173,7 @@ local Toggle = Tab:CreateToggle({
    end,
 })
 
-local Tab = Window:CreateTab("Items", 4483362458) -- Title, Image
+local Tab = Window:CreateTab("Items", nil) -- Title, Image
 
 local Section = Tab:CreateSection("Items")
 
@@ -219,7 +219,7 @@ local Toggle = Tab:CreateToggle({
    end,
 })
 
-local Tab = Window:CreateTab("Shops", 4483362458)
+local Tab = Window:CreateTab("Shops", nil)
 
 local Section = Tab:CreateSection("Auto Buys when Restocked")
 
@@ -243,7 +243,7 @@ local Toggle = Tab:CreateToggle({
    end,
 })
 
-local Tab = Window:CreateTab("Event", 4483362458) -- Title, Image
+local Tab = Window:CreateTab("Event", nil) -- Title, Image
 
 local Section = Tab:CreateSection("Easter")
 
@@ -256,7 +256,7 @@ local Button = Tab:CreateButton({
 
 local Section = Tab:CreateSection("Eggs")
 
-local Tab = Window:CreateTab("Enchant", 4483362458) -- Title, Image
+local Tab = Window:CreateTab("Enchant", nil) -- Title, Image
 
 local Section = Tab:CreateSection("This only works in the Enchanting Area")
 local Dropdown = Tab:CreateDropdown({
@@ -293,7 +293,7 @@ local Toggle = Tab:CreateToggle({
    end,
 })
 
-local Tab = Window:CreateTab("Visual", 4483362458) -- Title, Image
+local Tab = Window:CreateTab("Visual", nil) -- Title, Image
 
 local Section = Tab:CreateSection("Visual")
 
@@ -337,7 +337,7 @@ local Toggle = Tab:CreateToggle({
    end,
 })
 
-local Tab = Window:CreateTab("Rifts", 4483362458) -- Title, Image
+local Tab = Window:CreateTab("Rifts", nil) -- Title, Image
 
 local Section = Tab:CreateSection("This will Autofarm the Selected Rift")
 
@@ -375,7 +375,7 @@ local Toggle = Tab:CreateToggle({
    end,
 })
 
-local Tab = Window:CreateTab("Potions", 4483362458) -- Title, Image
+local Tab = Window:CreateTab("Potions", nil) -- Title, Image
 
 local Section = Tab:CreateSection("Potions")
 
@@ -417,7 +417,7 @@ local Button = Tab:CreateButton({
    end,
 })
 
-local Tab = Window:CreateTab("Teleport", 4483362458)
+local Tab = Window:CreateTab("Teleport", nil)
 
 local Section = Tab:CreateSection("Islands")
 
@@ -468,7 +468,7 @@ local Button = Tab:CreateButton({
    end,
 })
 
-local Tab = Window:CreateTab("Misc", 4483362458) -- Title, Image
+local Tab = Window:CreateTab("Misc", nil) -- Title, Image
 
 local Section = Tab:CreateSection("Others")
 
