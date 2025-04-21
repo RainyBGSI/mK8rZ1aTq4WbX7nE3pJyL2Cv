@@ -208,7 +208,7 @@ local Toggle = Tab:CreateToggle({
          for _, masteryName in ipairs(AutoMastery) do
           local args = {
              [1] = "UpgradeMastery",
-             [2] = "Pets"
+             [2] = masteryName
           }
 
           game:GetService("ReplicatedStorage")
