@@ -56,7 +56,7 @@ local Toggle = MainTab:CreateToggle({
                     :WaitForChild("Remote")
                     :WaitForChild("Event")
                     :FireServer(unpack(args))
-             task.wait(0.2)
+             task.wait(0.1)
            end
         end)
       end
