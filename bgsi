@@ -1,5 +1,4 @@
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
-local RunService = game:GetService("RunService")
 
 local MainWindow = Rayfield:CreateWindow({
     Name = "Bubble Gum Simulator Infinity",
@@ -38,20 +37,19 @@ local MainWindow = Rayfield:CreateWindow({
 local MainTab = MainWindow:CreateTab("Main", 4483362458)
 
 -- Auto Blow Bubbles
-local autoBlowConnection = nil
+local autoBlowRunning = false
+local blowThread = nil
 
 MainTab:CreateToggle({
     Name = "Auto Blow Bubbles",
     CurrentValue = false,
     Flag = "AutoBlowBubble",
-    Callback = function(enabled)
-        if enabled then
-            if autoBlowConnection == nil then
-                local lastFire = 0
-                autoBlowConnection = RunService.Heartbeat:Connect(function()
-                    if tick() - lastFire >= 0.2 then
-                        lastFire = tick()
-
+    Callback = function(Value)
+        autoBlowRunning = Value
+        if autoBlowRunning then
+            if blowThread == nil then
+                blowThread = task.spawn(function()
+                    while autoBlowRunning do
                         local args = {
                             [1] = "BlowBubble"
                         }
@@ -63,19 +61,20 @@ MainTab:CreateToggle({
                             :WaitForChild("Remote")
                             :WaitForChild("Event")
                             :FireServer(unpack(args))
+
+                        print("Blowing bubble at:", os.clock())
+                        task.wait(0.2)
                     end
+                    blowThread = nil
                 end)
             end
         else
-            if autoBlowConnection then
-                autoBlowConnection:Disconnect()
-                autoBlowConnection = nil
-            end
+            autoBlowRunning = false
         end
     end,
 })
 
--- Auto Sell (original version — can upgrade if needed)
+-- Auto Sell
 local autoSellRunning = false
 local sellThread = nil
 
@@ -85,7 +84,6 @@ MainTab:CreateToggle({
     Flag = "AutoSell",
     Callback = function(Value)
         autoSellRunning = Value
-
         if autoSellRunning then
             if sellThread == nil then
                 sellThread = task.spawn(function()
@@ -96,7 +94,8 @@ MainTab:CreateToggle({
                             :WaitForChild("Network")
                             :WaitForChild("Remote")
                             :WaitForChild("Event")
-                            :FireServer(SellBubble)
+                            :FireServer("SellBubble")
+                        print("Selling bubble at:", os.clock())
                         task.wait(1)
                     end
                     sellThread = nil
@@ -108,7 +107,7 @@ MainTab:CreateToggle({
     end,
 })
 
--- Auto Claim Playtime (original version — can upgrade if needed)
+-- Auto Claim Playtime
 local autoClaimRunning = false
 local claimThread = nil
 
@@ -118,7 +117,6 @@ MainTab:CreateToggle({
     Flag = "Toggle1",
     Callback = function(Value)
         autoClaimRunning = Value
-
         if autoClaimRunning then
             if claimThread == nil then
                 claimThread = task.spawn(function()
@@ -129,8 +127,9 @@ MainTab:CreateToggle({
                             :WaitForChild("Network")
                             :WaitForChild("Remote")
                             :WaitForChild("Function")
-                            :InvokeServer(ClaimPlaytime, 1, 2, 3, 4, 5, 6, 7, 8, 9)
-                        task.wait(1)
+                            :InvokeServer("ClaimPlaytime", 1, 2, 3, 4, 5, 6, 7, 8, 9)
+                        print("Claiming playtime at:", os.clock())
+                        task.wait(5)
                     end
                     claimThread = nil
                 end)
