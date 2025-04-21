@@ -173,65 +173,6 @@ local Toggle = Tab:CreateToggle({
    end,
 })
 
-local Tab = Window:CreateTab("Enchant", 4483362458) -- Title, Image
-
-local Section = Tab:CreateSection("This only works in the Enchanting Area")
-local Dropdown = Tab:CreateDropdown({
-   Name = "Select Enchant:",
-   Options = {"None","💰 Looter", "💭 Bubbler", "⚡️ Team Up", "✨ Gleaming", "🧲 Magnetism", "∞ Infinity", "🎲 High Roller"},
-   CurrentOption = {"None"},
-   MultipleOptions = true,
-   Flag = "ChoseEnchantDropdown", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-   Callback = function(Options)
-   -- The function that takes place when the selected option is changed
-   -- The variable (Options) is a table of strings for the current selected options
-   end,
-})
-
-local Dropdown = Tab:CreateDropdown({
-   Name = "Select Enchant Level:",
-   Options = {"None","I", "II", "III", "IV", "V"},
-   CurrentOption = {"None"},
-   MultipleOptions = true,
-   Flag = "EnchantLevelDropdown", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-   Callback = function(Options)
-   -- The function that takes place when the selected option is changed
-   -- The variable (Options) is a table of strings for the current selected options
-   end,
-})
-
-local Toggle = Tab:CreateToggle({
-   Name = "Auto Enchant",
-   CurrentValue = false,
-   Flag = "AutoEnchantToggle", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-   Callback = function(Value)
-   -- The function that takes place when the toggle is pressed
-   -- The variable (Value) is a boolean on whether the toggle is true or false
-   end,
-})
-
-local Tab = Window:CreateTab("Shops", 4483362458)
-
-local Toggle = Tab:CreateToggle({
-   Name = "Auto Buy Alien Shop",
-   CurrentValue = false,
-   Flag = "AutoAlienToggle", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-   Callback = function(Value)
-   -- The function that takes place when the toggle is pressed
-   -- The variable (Value) is a boolean on whether the toggle is true or false
-   end,
-})
-
-local Toggle = Tab:CreateToggle({
-   Name = "Auto Buy Blackmarket",
-   CurrentValue = false,
-   Flag = "AutoBlackmarketToggle", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-   Callback = function(Value)
-   -- The function that takes place when the toggle is pressed
-   -- The variable (Value) is a boolean on whether the toggle is true or false
-   end,
-})
-
 local Tab = Window:CreateTab("Items", 4483362458) -- Title, Image
 
 local Toggle = Tab:CreateToggle({
@@ -276,30 +217,73 @@ local Toggle = Tab:CreateToggle({
    end,
 })
 
-local Section = Tab:CreateSection("Potions")
+local Tab = Window:CreateTab("Shops", 4483362458)
 
+local Toggle = Tab:CreateToggle({
+   Name = "Auto Buy Alien Shop",
+   CurrentValue = false,
+   Flag = "AutoAlienToggle", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+   -- The function that takes place when the toggle is pressed
+   -- The variable (Value) is a boolean on whether the toggle is true or false
+   end,
+})
+
+local Toggle = Tab:CreateToggle({
+   Name = "Auto Buy Blackmarket",
+   CurrentValue = false,
+   Flag = "AutoBlackmarketToggle", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+   -- The function that takes place when the toggle is pressed
+   -- The variable (Value) is a boolean on whether the toggle is true or false
+   end,
+})
+
+local Tab = Window:CreateTab("Easter", 4483362458) -- Title, Image
+
+local Button = Tab:CreateButton({
+   Name = "Teleport to Easter",
+   Callback = function()
+   -- The function that takes place when the button is pressed
+   end,
+})
+
+local Tab = Window:CreateTab("Enchant", 4483362458) -- Title, Image
+
+local Section = Tab:CreateSection("This only works in the Enchanting Area")
 local Dropdown = Tab:CreateDropdown({
-   Name = "Auto Use Potion",
-   Options = {"None",""},
+   Name = "Select Enchant:",
+   Options = {"None","💰 Looter", "💭 Bubbler", "⚡️ Team Up", "✨ Gleaming", "🧲 Magnetism", "∞ Infinity", "🎲 High Roller"},
    CurrentOption = {"None"},
-   MultipleOptions = false,
-   Flag = "AutoPotionToggle", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   MultipleOptions = true,
+   Flag = "ChoseEnchantDropdown", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
    Callback = function(Options)
    -- The function that takes place when the selected option is changed
    -- The variable (Options) is a table of strings for the current selected options
    end,
 })
 
-local Button = Tab:CreateButton({
-   Name = "Use Selected Potion",
-   Callback = function()
-   -- The function that takes place when the button is pressed
+local Dropdown = Tab:CreateDropdown({
+   Name = "Select Enchant Level:",
+   Options = {"None","I", "II", "III", "IV", "V"},
+   CurrentOption = {"None"},
+   MultipleOptions = true,
+   Flag = "EnchantLevelDropdown", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Options)
+   -- The function that takes place when the selected option is changed
+   -- The variable (Options) is a table of strings for the current selected options
    end,
 })
 
-local Tab = Window:CreateTab("Easter", 4483362458) -- Title, Image
-
-
+local Toggle = Tab:CreateToggle({
+   Name = "Auto Enchant",
+   CurrentValue = false,
+   Flag = "AutoEnchantToggle", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+   -- The function that takes place when the toggle is pressed
+   -- The variable (Value) is a boolean on whether the toggle is true or false
+   end,
+})
 
 local Tab = Window:CreateTab("Visual", 4483362458) -- Title, Image
 
@@ -376,6 +360,46 @@ local Toggle = Tab:CreateToggle({
    Callback = function(Value)
    -- The function that takes place when the toggle is pressed
    -- The variable (Value) is a boolean on whether the toggle is true or false
+   end,
+})
+
+local Tab = Window:CreateTab("Potions", 4483362458) -- Title, Image
+
+local Dropdown = Tab:CreateDropdown({
+   Name = "Select Potion",
+   Options = {"None","Coins", "Lucky", "Speed", "Mythic"},
+   CurrentOption = {"None"},
+   MultipleOptions = false,
+   Flag = "SelectPotionDropdown", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Options)
+   -- The function that takes place when the selected option is changed
+   -- The variable (Options) is a table of strings for the current selected options
+   end,
+})
+
+local Dropdown = Tab:CreateDropdown({
+   Name = "Select Potion Level",
+   Options = {"None","Coins", "Lucky", "Speed", "Mythic"},
+   CurrentOption = {"None"},
+   MultipleOptions = false,
+   Flag = "PotionLevelDropdown", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Options)
+   -- The function that takes place when the selected option is changed
+   -- The variable (Options) is a table of strings for the current selected options
+   end,
+})
+
+local Button = Tab:CreateButton({
+   Name = "Use Selected Potion",
+   Callback = function()
+   -- The function that takes place when the button is pressed
+   end,
+})
+
+local Button = Tab:CreateButton({
+   Name = "Use Infinity Elixir",
+   Callback = function()
+   -- The function that takes place when the button is pressed
    end,
 })
 
