@@ -249,9 +249,9 @@ local Toggle = Tab:CreateToggle({
    Flag = "AntiAFKToggle",
    Callback = function(Value)
       _G.AntiAFK = Value
-      if Value then
+       if Value then
          task.spawn(function()
-            if _G.AntiAFK then
+            while _G.AntiAFK do
                local playerGui = Players.LocalPlayer:WaitForChild("PlayerGui")
                local screenGui = playerGui:FindFirstChild("ScreenGui") -- Adjust name if needed
                if screenGui then
