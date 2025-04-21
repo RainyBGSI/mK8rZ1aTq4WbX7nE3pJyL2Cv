@@ -194,6 +194,8 @@ local Toggle = Tab:CreateToggle({
    end,
 })
 
+local Section = Tab:CreateSection("Order: Pets -> Buffs -> Shops")
+
 local Toggle = Tab:CreateToggle({
    Name = "Auto Buy Mastery",
    CurrentValue = false,
