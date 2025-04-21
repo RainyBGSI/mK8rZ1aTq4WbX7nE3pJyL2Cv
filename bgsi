@@ -40,21 +40,25 @@ local Toggle = MainTab:CreateToggle({
    Name = "Auto Blow Bubbles",
    CurrentValue = false,
    Flag = "AutoBlowBubble", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-   Callback = function(autoBlow)
-           while autoBlow do
-            local args = {
-    [1] = "BlowBubble"
-}
+   Callback = function(Value)
+       autoBlowTrue = Value
+       if autoBlowTrue then
+           task.spawn(function()
+               while autoBlowTrue do
+                   local args = {
+                       [1] = "BlowBubble"
+                    }
 
-game:GetService("ReplicatedStorage")
-:WaitForChild("Shared")
-:WaitForChild("Framework")
-:WaitForChild("Network")
-:WaitForChild("Remote")
-:WaitForChild("Event")
-:FireServer(unpack(args))
-     task.wait(1)
-         end
+                    game:GetService("ReplicatedStorage")
+                    :WaitForChild("Shared")
+                    :WaitForChild("Framework")
+                    :WaitForChild("Network")
+                    :WaitForChild("Remote")
+                    :WaitForChild("Event")
+                    :FireServer(unpack(args))
+             task.wait(1)
+           end
+        end)
       end
    end,
 })
