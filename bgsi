@@ -393,7 +393,7 @@ local Dropdown = Tab:CreateDropdown({
 
 local Dropdown = Tab:CreateDropdown({
    Name = "Select Potion Level",
-   Options = {"None","Coins", "Lucky", "Speed", "Mythic"},
+   Options = {"None","I", "II", "III", "IV", "V"},
    CurrentOption = {"None"},
    MultipleOptions = false,
    Flag = "PotionLevelDropdown", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
