@@ -1,7 +1,7 @@
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 local MainWindow = Rayfield:CreateWindow({
-    Name = "Bubble Gum Simulator Infinity",
+    Name = "Bubble Gum Simulator INFINITY",
     Icon = 0,
     LoadingTitle = "Loading Interface...",
     LoadingSubtitle = "",
