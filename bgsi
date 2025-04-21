@@ -241,13 +241,28 @@ local Toggle = Tab:CreateToggle({
    end,
 }
 
+local Players = game:GetService("Players")
+
 local Toggle = Tab:CreateToggle({
    Name = "Anti AFK",
    CurrentValue = false,
-   Flag = "AntiAFKToggle", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Flag = "AntiAFKToggle",
    Callback = function(Value)
-   -- The function that takes place when the toggle is pressed
-   -- The variable (Value) is a boolean on whether the toggle is true or false
+      _G.AntiAFK = Value
+      if Value then
+         task.spawn(function()
+            if _G.AntiAFK then
+               local playerGui = Players.LocalPlayer:WaitForChild("PlayerGui")
+               local screenGui = playerGui:FindFirstChild("ScreenGui") -- Adjust name if needed
+               if screenGui then
+                  local afk = screenGui:FindFirstChild("AFK")
+                  local afkReveal = screenGui:FindFirstChild("AFKReveal")
+                  if afk then afk.Visible = false end
+                  if afkReveal then afkReveal.Visible = false end
+               end
+            end
+         end)
+      end
    end,
 })
 
