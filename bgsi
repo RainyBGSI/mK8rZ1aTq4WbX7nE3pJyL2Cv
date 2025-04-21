@@ -3,6 +3,7 @@ if not Rayfield then
     print("Rayfield failed to load.")
     return
 end
+print(game:HttpGet("https://sirius.menu/rayfield"))
 
 local Window = Rayfield:CreateWindow({
     Name = "Bubble Gum Simulator INFINITY",
