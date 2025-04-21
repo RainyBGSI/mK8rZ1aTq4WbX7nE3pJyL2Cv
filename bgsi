@@ -295,7 +295,7 @@ local Toggle = Tab:CreateToggle({
 
 local Tab = Window:CreateTab("Visual", 4483362458) -- Title, Image
 
-local Section = Tab:CreateSection("ESP")
+local Section = Tab:CreateSection("Visual")
 
 local Toggle = Tab:CreateToggle({
    Name = "Rift ESP",
