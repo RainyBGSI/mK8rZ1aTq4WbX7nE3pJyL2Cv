@@ -119,7 +119,6 @@ local Toggle = Tab:CreateToggle({
    end,
 })
 
-local Section = Tab:CreateSection("Others")
 local Toggle = Tab:CreateToggle({
    Name = "Anti AFK",
    CurrentValue = false,
@@ -161,6 +160,28 @@ local Toggle = Tab:CreateToggle({
    Name = "Auto Enchant",
    CurrentValue = false,
    Flag = "AutoEnchantToggle", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+   -- The function that takes place when the toggle is pressed
+   -- The variable (Value) is a boolean on whether the toggle is true or false
+   end,
+})
+
+local Tab = Window:CreateTab("Shops", 4483362458)
+
+local Toggle = Tab:CreateToggle({
+   Name = "Auto Buy Alien Shop",
+   CurrentValue = false,
+   Flag = "AutoAlienToggle", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+   -- The function that takes place when the toggle is pressed
+   -- The variable (Value) is a boolean on whether the toggle is true or false
+   end,
+})
+
+local Toggle = Tab:CreateToggle({
+   Name = "Auto Buy Blackmarket",
+   CurrentValue = false,
+   Flag = "AutoBlackmarketToggle", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
    Callback = function(Value)
    -- The function that takes place when the toggle is pressed
    -- The variable (Value) is a boolean on whether the toggle is true or false
