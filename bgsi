@@ -258,28 +258,6 @@ local Toggle = Tab:CreateToggle({
    CurrentValue = false,
    Flag = "AutoBoxToggle",
    Callback = function(Value)
-       task.spawn(function()
-           while Value do
-               local replicatedStorage = game:GetService("ReplicatedStorage")
-               local player = game.Players.LocalPlayer
-               local giftCountValue = replicatedStorage:WaitForChild("PlayerData"):WaitForChild(player.Name):WaitForChild("Gifts"):WaitForChild("Mystery Box")
-               local networkEvent = replicatedStorage:WaitForChild("Shared"):WaitForChild("Framework"):WaitForChild("Network"):WaitForChild("Remote"):WaitForChild("Event")
-
-               local currentGiftCount = giftCountValue.Value
-
-               if currentGiftCount > 0 then
-                   local batchSize = math.clamp(currentGiftCount, 1, 10)
-
-                   local args = {
-                       [1] = "UseGift",
-                       [2] = "Mystery Box",
-                       [3] = batchSize
-                   }
-
-                   networkEvent:FireServer(unpack(args))
-               end
-           end
-       end)
    end,
 })
 
