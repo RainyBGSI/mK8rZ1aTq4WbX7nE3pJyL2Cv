@@ -254,47 +254,33 @@ local Tab = Window:CreateTab("Items", nil) -- Title, Image
 local Section = Tab:CreateSection("Items")
 
 local Toggle = Tab:CreateToggle({
-    Name = "Auto Use Mystery Box",
-    CurrentValue = false,
-    Flag = "AutoBoxToggle",
-    Callback = function(Value)
-        _G.AutoBox = Value
-        if Value then
-            task.spawn(function()
-                local replicatedStorage = game:GetService("ReplicatedStorage")
-                local player = game.Players.LocalPlayer
-                local giftCountValue = replicatedStorage:WaitForChild("PlayerData"):WaitForChild("Gifts"):WaitForChild("Mystery Box")
-                local networkEvent = replicatedStorage:WaitForChild("Shared"):WaitForChild("Framework"):WaitForChild("Network"):WaitForChild("Remote"):WaitForChild("Event")
+   Name = "Auto Use Mystery Box",
+   CurrentValue = false,
+   Flag = "AutoBoxToggle",
+   Callback = function(Value)
+       task.spawn(function()
+           while Value do
+               local replicatedStorage = game:GetService("ReplicatedStorage")
+               local player = game.Players.LocalPlayer
+               local giftCountValue = replicatedStorage:WaitForChild("PlayerData"):WaitForChild(player.Name):WaitForChild("Gifts"):WaitForChild("Mystery Box")
+               local networkEvent = replicatedStorage:WaitForChild("Shared"):WaitForChild("Framework"):WaitForChild("Network"):WaitForChild("Remote"):WaitForChild("Event")
 
-                while _G.AutoBox do
-                    local giftCount = giftCountValue.Value
+               local currentGiftCount = giftCountValue.Value
 
-                    if giftCount > 0 then
-                        local used = false
-                        for i = 10, 1, -1 do
-                            if giftCount >= i then
-                                local args = {
-                                    [1] = "UseGift",
-                                    [2] = "Mystery Box",
-                                    [3] = i
-                                }
-                                networkEvent:FireServer(unpack(args))
-                                giftCount -= i
-                                used = true
-                                task.wait(0.2)
-                                break
-                            end
-                        end
-                        if not used then
-                            task.wait(0.5)
-                        end
-                    else
-                        task.wait(1)
-                    end
-                end
-            end)
-        end
-    end,
+               if currentGiftCount > 0 then
+                   local batchSize = math.clamp(currentGiftCount, 1, 10)
+
+                   local args = {
+                       [1] = "UseGift",
+                       [2] = "Mystery Box",
+                       [3] = batchSize
+                   }
+
+                   networkEvent:FireServer(unpack(args))
+               end
+           end
+       end)
+   end,
 })
 
 local Toggle = Tab:CreateToggle({
