@@ -262,7 +262,7 @@ local Toggle = Tab:CreateToggle({
        if Value then
         task.spawn(function()
           while _G.AutoBox do
-           local replicatedSrorage = game:GetService("ReplicatedStorage")
+           local replicatedStorage = game:GetService("ReplicatedStorage")
            local player = game.Players.LocalPlayer
            local giftCountValue = replicatedStorage:WaitForChild("PlayerData"):WaitForChild("Gifts"):WaitForChild("Mystery Box")
            local networkEvent = replicatedStorage:WaitForChild("Shared"):WaitForChild("Framework"):WaitForChild("Network"):WaitForChild("Remote"):WaitForChild("Event")
