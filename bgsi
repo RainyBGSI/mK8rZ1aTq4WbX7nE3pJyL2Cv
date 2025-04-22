@@ -174,7 +174,7 @@ local Toggle = Tab:CreateToggle({
      if Value then
        task.spawn(function()
         while _G.AutoBuyMastery do
-         for _, masteryName in ipairs(AutoMastery) do
+         for _, AutoBuyMastery in ipairs(masteryName) do
           local args = {
              [1] = "UpgradeMastery",
              [2] = masteryName
