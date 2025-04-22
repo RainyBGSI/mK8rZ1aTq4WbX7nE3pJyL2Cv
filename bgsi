@@ -258,8 +258,38 @@ local Toggle = Tab:CreateToggle({
    CurrentValue = false,
    Flag = "AutoBoxToggle", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
    Callback = function(Value)
-   -- The function that takes place when the toggle is pressed
-   -- The variable (Value) is a boolean on whether the toggle is true or false
+     _G.AutoBox = Value
+       if Value then
+        task.spawn(function()
+          while _G.AutoBox do
+           local replicatedSrorage = game:GetService("ReplicatedStorage")
+           local player = game.Players.LocalPlayer
+           local giftCountValue = replicatedStorage:WaitForChild("PlayerData"):WaitForChild("Gifts"):WaitForChild("Mystery Box")
+           local networkEvent = replicatedStorage:WaitForChild("Shared"):WaitForChild("Framework"):WaitForChild("Network"):WaitForChild("Remote"):WaitForChild("Event")
+           local giftCount = giftCountValue.Value
+
+           while giftCount > 0 do
+              local used = false
+              for i = 10, 1, -1 do
+                  if giftCount >= i then
+                       local args = {
+                           [1] = "UseGift",
+                           [2] = "Mystery Box",
+                           [3] = i
+                       }
+                       networkEvent:FireServer(unpack(args))
+                           giftCount -= i
+                           used = true
+                           wait(0.2)
+                           break
+                       end
+                   end
+                   if not used then
+                       break
+                   end
+               end
+           end
+       end)
    end,
 })
 
