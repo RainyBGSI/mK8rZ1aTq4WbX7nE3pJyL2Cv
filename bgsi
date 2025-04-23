@@ -258,7 +258,21 @@ local Toggle = Tab:CreateToggle({
    CurrentValue = false,
    Flag = "AutoBoxToggle",
    Callback = function(Value)
-   end,
+     _G.AutoBox = Value
+     if Value then
+        task.spawn(function()
+          while _G.AutoBox do
+           local args = {
+            [1] = "UseGift",
+            [2] = "Mystery Box",
+            [3] = 1,}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Shared"):WaitForChild("Framework"):WaitForChild("Network"):WaitForChild("Remote"):WaitForChild("Event"):FireServer(unpack(args))
+           task.wait(1)
+         end
+      end)
+    end
+  end
 })
 
 local Toggle = Tab:CreateToggle({
