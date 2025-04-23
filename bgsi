@@ -314,12 +314,12 @@ local Section = Tab:CreateSection("Requires 6x Egg Open")
 local Toggle = Tab:CreateToggle({
    Name = "Auto Open Bunny Egg (Fast)",
    CurrentValue = false,
-   Flag = "AutoBunnyEgg", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Flag = "AutoBunnyEgg6", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
    Callback = function(Value)
-    _G.AutoBunny = Value
+    _G.AutoBunnySix = Value
     if Value then
        task.spawn(function()
-         while _G.AutoBunny do
+         while _G.AutoBunnySix do
             local args = {
               [1] = "HatchEgg",
               [2] = "Bunny Egg",
@@ -346,12 +346,12 @@ local Section = Tab:CreateSection("Requires 5x Egg Open")
 local Toggle = Tab:CreateToggle({
    Name = "Auto Open Bunny Egg (Fast)",
    CurrentValue = false,
-   Flag = "AutoBunnyEgg", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Flag = "AutoBunnyEgg5", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
    Callback = function(Value)
-    _G.AutoBunny = Value
+    _G.AutoBunnyFive = Value
     if Value then
        task.spawn(function()
-         while _G.AutoBunny do
+         while _G.AutoBunnyFive do
             local args = {
               [1] = "HatchEgg",
               [2] = "Bunny Egg",
