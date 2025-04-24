@@ -169,7 +169,7 @@ local Toggle = Tab:CreateToggle({
     _G.AutoWheelSpin = Value
      if Value then
       task.spawn(function()
-       while _G.AutoWheelSpin
+       while _G.AutoWheelSpin do
         local args = {
           [1] = "WheelSpin"
         }
