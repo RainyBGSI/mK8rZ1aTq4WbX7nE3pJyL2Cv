@@ -408,6 +408,36 @@ local Toggle = Tab:CreateToggle({
  end
 })
 
+local Toggle = Tab:CreateToggle({
+   Name = "Auto Open Throwback Egg (Fast)",
+   CurrentValue = false,
+   Flag = "AutoThrowbackEgg6", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+    _G.AutoThrowbackSix = Value
+    if Value then
+       task.spawn(function()
+         while _G.AutoThrowbackSix do
+            local args = {
+              [1] = "HatchEgg",
+              [2] = "Throwback Egg",
+              [3] = 6
+            }
+
+            game:GetService("ReplicatedStorage")
+                :WaitForChild("Shared")
+                :WaitForChild("Framework")
+                :WaitForChild("Network")
+                :WaitForChild("Remote")
+                :WaitForChild("Event")
+                :FireServer(unpack(args))
+
+            task.wait(0.1)
+          end
+       end)
+    end
+ end
+})
+
 local Section = Tab:CreateSection("Requires 5x Egg Open")
 
 local Toggle = Tab:CreateToggle({
@@ -452,6 +482,36 @@ local Toggle = Tab:CreateToggle({
             local args = {
               [1] = "HatchEgg",
               [2] = "Pastel Egg",
+              [3] = 5
+            }
+
+            game:GetService("ReplicatedStorage")
+                :WaitForChild("Shared")
+                :WaitForChild("Framework")
+                :WaitForChild("Network")
+                :WaitForChild("Remote")
+                :WaitForChild("Event")
+                :FireServer(unpack(args))
+
+            task.wait(0.1)
+          end
+       end)
+    end
+ end
+})
+
+local Toggle = Tab:CreateToggle({
+   Name = "Auto Open Throwback Egg (Fast)",
+   CurrentValue = false,
+   Flag = "AutoThrowbackEgg5", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+    _G.AutoThrowbackFive = Value
+    if Value then
+       task.spawn(function()
+         while _G.AutoThrowbackFive do
+            local args = {
+              [1] = "HatchEgg",
+              [2] = "Throwback Egg",
               [3] = 5
             }
 
