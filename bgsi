@@ -161,6 +161,27 @@ local Toggle = Tab:CreateToggle({
    end
 })
 
+local Toggle = Tab:CreateToggle({
+   Name = "Auto Spin Wheel",
+   CurrentValue = false,
+   Flag = "AutoWheelSpin", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+    _G.AutoWheelSpin = Value
+     if Value then
+      task.spawn(function()
+       while _G.AutoWheelSpin
+        local args = {
+          [1] = "WheelSpin"
+        }
+
+game:GetService("ReplicatedStorage"):WaitForChild("Shared"):WaitForChild("Framework"):WaitForChild("Network"):WaitForChild("Remote"):WaitForChild("Function"):InvokeServer(unpack(args))
+         task.wait(0.1)
+      end
+    end)
+   end
+ end
+})
+
 local Section = Tab:CreateSection("Order: Pets -> Buffs -> Shops")
 
 local Toggle = Tab:CreateToggle({
