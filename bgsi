@@ -170,11 +170,27 @@ local Toggle = Tab:CreateToggle({
       if Value then
          task.spawn(function()
             while _G.AutoWheelSpin do
-               local args = {
+               local spinArgs = {
                   [1] = "WheelSpin"
                }
+               game:GetService("ReplicatedStorage")
+                   :WaitForChild("Shared")
+                   :WaitForChild("Framework")
+                   :WaitForChild("Network")
+                   :WaitForChild("Remote")
+                   :WaitForChild("Function")
+                   :InvokeServer(unpack(spinArgs))
 
-               game:GetService("ReplicatedStorage"):WaitForChild("Shared"):WaitForChild("Framework"):WaitForChild("Network"):WaitForChild("Remote"):WaitForChild("Function"):InvokeServer(unpack(args))
+               local skipArgs = {
+                  [1] = "ClaimWheelSpinQueue"
+               }
+               game:GetService("ReplicatedStorage")
+                   :WaitForChild("Shared")
+                   :WaitForChild("Framework")
+                   :WaitForChild("Network")
+                   :WaitForChild("Remote")
+                   :WaitForChild("Event")
+                   :FireServer(unpack(skipArgs))
                task.wait(0.1)
             end
          end)
