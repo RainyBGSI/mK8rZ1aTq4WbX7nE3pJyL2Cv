@@ -104,7 +104,7 @@ local Toggle = Tab:CreateToggle({
                      :WaitForChild("Function")
                      :InvokeServer(unpack(args))
 
-                  task.wait(0.1)
+                  task.wait(1)
                end
             end
          end)
@@ -154,7 +154,7 @@ local Toggle = Tab:CreateToggle({
                    :WaitForChild("Event")
                    :FireServer(unpack(args))
 
-               task.wait(0.1)
+               task.wait(5)
             end
          end)
       end
@@ -260,7 +260,7 @@ local Toggle = Tab:CreateToggle({
                       :WaitForChild("Event")
                       :FireServer(unpack(args))
 
-                  task.wait(0.1)
+                  task.wait(10)
                end
             end
          end)
@@ -577,7 +577,7 @@ local Toggle = Tab:CreateToggle({
                      [3] = i
                   }
                   event:FireServer(unpack(args))
-                  task.wait(0.1)
+                  task.wait(1)
                end
             end
          end)
@@ -607,7 +607,7 @@ local Toggle = Tab:CreateToggle({
                      [3] = i
                   }
                   event:FireServer(unpack(args))
-                  task.wait(0.1)
+                  task.wait(1)
                end
             end
          end)
