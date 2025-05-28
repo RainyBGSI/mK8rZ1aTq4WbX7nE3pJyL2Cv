@@ -486,7 +486,7 @@ local Toggle = Tab:CreateToggle({
                 :WaitForChild("Framework")
                 :WaitForChild("Network")
                 :WaitForChild("Remote")
-                :WaitForChild("Event")
+                :WaitForChild("RemoteEvent")
                 :FireServer(unpack(args))
 
             task.wait(0.1)
@@ -516,7 +516,7 @@ local Toggle = Tab:CreateToggle({
                 :WaitForChild("Framework")
                 :WaitForChild("Network")
                 :WaitForChild("Remote")
-                :WaitForChild("Event")
+                :WaitForChild("RemoteEvent")
                 :FireServer(unpack(args))
 
             task.wait(0.1)
@@ -546,7 +546,7 @@ local Toggle = Tab:CreateToggle({
                 :WaitForChild("Framework")
                 :WaitForChild("Network")
                 :WaitForChild("Remote")
-                :WaitForChild("Event")
+                :WaitForChild("RemoteEvent")
                 :FireServer(unpack(args))
 
             task.wait(0.1)
