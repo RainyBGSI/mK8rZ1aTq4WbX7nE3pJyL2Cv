@@ -126,7 +126,7 @@ local Toggle = Tab:CreateToggle({
          }
 
 game:GetService("ReplicatedStorage"):WaitForChild("Shared"):WaitForChild("Framework"):WaitForChild("Network"):WaitForChild("Remote"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
-             task.wait(0.0001)
+             task.wait(0.00001)
            end
         end)
      end
